@@ -1,0 +1,1 @@
+<span><a class="btn btn-info" role="button" href="{{ url($action['route'] . '/' . $action['id'] ) }}">{{ $action['name'] }}</a></span>&nbsp;

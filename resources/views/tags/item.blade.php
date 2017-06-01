@@ -1,1 +1,1 @@
-<span class="tag">{{ $tag->name }}</span>
+<span class="tag"><b>{{ $tag->name }}</b></span>&nbsp;

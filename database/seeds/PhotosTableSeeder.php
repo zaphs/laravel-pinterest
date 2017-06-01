@@ -11,13 +11,6 @@ class PhotosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Tag::class, 50)->create()->each(function($t){
-
-        });
-
-//        factory(App\Photo::class, 50)->create()->each(function($p){
-//
-//        });
 
     }
 }

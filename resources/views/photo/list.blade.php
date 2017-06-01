@@ -28,6 +28,11 @@
                                 <tr>
                                     <!-- Task Name -->
                                     <td class="table-text">
+                                        <div class="image">
+                                            <a href="{{ url('/photo/'.$photo->id) }}">
+                                                <img src="{{ $photo->url }}" />
+                                            </a>
+                                        </div>
                                         <div class="user"><a href="{{ url('/profile/'.$photo->user->id)  }}">{{ $photo->user->name }}</a></div>
                                         <div class="text"><a href="{{ url('/photo/'.$photo->id) }}">{{ $photo->title }} {{ $photo->id }}</a></div>
                                         <div class="tags">

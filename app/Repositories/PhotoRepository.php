@@ -28,5 +28,11 @@ class PhotoRepository
             ->orderBy('updated_at', 'desc')
             ->get();
     }
+
+    public function findAll()
+    {
+        return Photo::all();
+    }
+
 }
 

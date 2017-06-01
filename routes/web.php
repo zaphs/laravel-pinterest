@@ -20,9 +20,14 @@ Route::get('/', 'PhotoController@dashboard');
 // Authentication Routes...
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/profile/{user}', 'ProfileController@profile');
+    Route::get('/profile/{user}', 'ProfileController@profile')->name('user.view');
     Route::get('/dashboard', 'PhotoController@dashboard');
-    Route::get('/photo/{id}', 'PhotoController@photo');
+    Route::get('/photo/{id}', 'PhotoController@view')->name('photo.view');
+
+    Route::get('/follow/{user}', 'ActionController@follow')->name('follow');
+    Route::get('/like/{photo}', 'ActionController@like')->name('like');
+
+//    Route::get('/photos', 'PhotoController@list');
 
 });
 

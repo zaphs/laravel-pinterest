@@ -18,6 +18,7 @@ class CreatePhotosTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('slug');
+            $table->string('url');
             $table->timestamps();
         });
     }

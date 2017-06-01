@@ -17,16 +17,11 @@
 
                         <div class="ow_left place_section left_section ow_supernarrow">
 
-                            <div class="ow_dnd_widget profile-BASE_CMP_UserAvatarWidget">
+                            <div class="ow_dnd_widget">
 
-                                <div class="ow_box_empty ow_stdmargin clearfix profile-BASE_CMP_UserAvatarWidget ow_no_cap ow_break_word">
+                                <div class="ow_box_empty ow_stdmargin clearfix ow_no_cap ow_break_word">
                                     <div class="ow_avatar_console ow_center" id="avatar-console">
-                                        <div id="avatar_console_image" style="height: 190px; background-image: url(http://ow16/ow_userfiles/plugins/base/avatars/avatar_big_1_1446279851.jpg);">
-
-                                            <div class="ow_avatar_pending_approval" style="display:none;position: absolute; top: 0; right: 0; left: 0; bottom: 0; background-color: rgba(0,0,0,0.6); color: #fff; padding: 8px;">Avatar is pending approval</div>
-
-
-
+                                        <div id="avatar_console_image" style="height: 190px; background-image: url({{ $user->avatar }});">
                                         </div>
                                         <div class="user_online_wrap"><div class="ow_miniic_live"><span class="ow_live_on"></span></div></div>
                                     </div>
@@ -68,6 +63,13 @@
                                                 <td class="ow_value"><span class="">{{ $user->created_at }}</span></td>
                                             </tr>
                                             </tbody></table>
+                                    </div>
+
+                                    <div>
+                                        {{ count($user->followers) }} followers
+                                    </div>
+                                    <div>
+                                        {{ count($user->followings) }} followings
                                     </div>
 
                                 </div>

@@ -18,10 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('name');
-            $table->string('description');
-            $table->string('gender');
-            $table->date('birthdate');
+            $table->string('description')->default("");
+            $table->string('gender')->default("Male");
+            $table->date('birthdate')->default("1998-12-18");
+            $table->string('avatar')->default("http://ow16/ow_userfiles/plugins/base/avatars/avatar_big_1_1446279851.jpg");
             $table->timestamps();
+
+
         });
     }
 

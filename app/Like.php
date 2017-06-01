@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
+    protected $table = 'likes';
+
+    protected $fillable = [
+        'entity_id',
+        'user_id',
+    ];
+
     /**
      * Get the user that owns the like
      */
@@ -13,4 +20,10 @@ class Like extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function photo()
+    {
+        return $this->belongsTo(Photo::class);
+    }
+
 }

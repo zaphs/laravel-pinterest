@@ -47,12 +47,12 @@ class User extends Authenticatable
 
     public function followers()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Follow::class, 'user_id');
     }
 
     public function followings()
     {
-        return $this->belongsToMany(User::class);
+        return $this->hasMany(Follow::class, 'follower_id');
     }
 
     public function tags()
@@ -60,8 +60,4 @@ class User extends Authenticatable
         return $this->hasManyThrough(Tag::class, Photo::class);
     }
 
-    public function likes()
-    {
-        return $this->morphToMany(Tag::class, 'taggable');
-    }
 }

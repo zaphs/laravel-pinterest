@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -19,13 +20,12 @@ class PhotoController extends Controller
      */
     public function __construct(PhotoRepository $photos)
     {
-        $this->middleware('auth');
         $this->photos = $photos;
     }
 
     public function dashboard(Request $request)
     {
-        $photos = $this->photos->forUser($request->user());
+        $photos = $this->photos->findAll();
 
         return view('photo.list', ['photos'=>$photos]);
     }
@@ -37,11 +37,22 @@ class PhotoController extends Controller
         return view('photo.list', ['photos'=>$photos]);
     }
 
-    public function photo(Request $request, $id)
+    public function view(Request $request, $id)
     {
         $photo = Photo::where('id', (int)$id)->first();
 
-        $actions = [];
+        $actions = [
+            [
+                'route'=>'follow',
+                'name'=>'Follow',
+                'id' => $photo->user->id,
+            ],
+            [
+                'route'=>'like',
+                'name'=>'Like',
+                'id' => $id,
+            ],
+        ];
 
         return view('photo.view', ['photo'=>$photo, 'actions'=>$actions]);
     }
